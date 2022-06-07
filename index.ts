@@ -11,7 +11,7 @@ server.on(
   "request",
   (request: http.IncomingMessage, response: http.ServerResponse) => {
     const { method, url: requestUrl, headers } = request;
-    if (method !== "get") {
+    if (method.toLocaleLowerCase() !== "get") {
       response.statusCode = 405;
       response.end();
       return;
